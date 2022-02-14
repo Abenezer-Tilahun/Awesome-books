@@ -3,6 +3,10 @@
 
 This is a pair programming project that allows users to add and remove books from a list using javascript objects and arrays
 
+Our goal here is to Build a book application with add and remove feature from scratch using JavaScripts. click [here] (https://abenezer-tilahun.github.io/Awesome-books/) to see deployed live version
+
+![screenshot](images/Screenshoot.PNG)
+
 
 ## Features implemented so far
 - Add book feature
