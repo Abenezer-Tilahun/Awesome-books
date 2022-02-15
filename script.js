@@ -1,70 +1,76 @@
-let books = [];
-const listSection = document.querySelector('.list-section');
-const bookTitle = document.querySelector('#title');
-const bookAuthor = document.querySelector('#author');
-const theForm = document.querySelector('form');
+// Initialize the books
+let books;
 
-// adding items in the books array
+// create the book class
 
-function removeBook(bookitem, i) {
-  const bookBlock = document.getElementById(i);
-  books = books.filter((item) => item !== bookitem);
-  localStorage.setItem('collectedbooks', JSON.stringify(books));
-  listSection.removeChild(bookBlock);
-}
+class UpdateDisplay {
+  constructor(author, title) {
+    this.title = title;
+    this.author = author;
+  }
 
-function addBookitem(bookitem, i) {
-  const bookBlock = document.createElement('div');
-  bookBlock.classList.add('bookBlock');
-  bookBlock.id = i;
+  static listSection = document.querySelector('.list-section');
 
-  const removeBtn = document.createElement('button');
-  removeBtn.classList.add('remove-btn');
-  removeBtn.innerText = 'Remove';
+  static bookTitle = document.querySelector('#title');
 
-  const underLine = document.createElement('hr');
+  static formBtn = document.querySelector('.btn-submit');
 
-  bookBlock.innerHTML = `<p class="book-title">${bookitem.title}</p>
-    <p class="book-Author">${bookitem.author}</p> `;
-  bookBlock.appendChild(removeBtn);
-  bookBlock.appendChild(underLine);
-  listSection.appendChild(bookBlock);
+  static bookAuthor = document.querySelector('#author');
 
-  removeBtn.onclick = () => {
-    removeBook(bookitem, i);
-  };
-}
+  // create new book
+  static addBooks() {
+    const bookItem = new UpdateDisplay(
+      UpdateDisplay.bookTitle.value,
+      UpdateDisplay.bookAuthor.value,
+    );
+    books.push(bookItem);
+    localStorage.setItem('books', JSON.stringify(books));
 
-function addBooks(item) {
-  books.push({
-    title: bookTitle.value,
-    author: bookAuthor.value,
-  });
+    UpdateDisplay.bookAuthor.value = '';
+    UpdateDisplay.bookTitle.value = '';
+    UpdateDisplay.addBookItem(bookItem, books.length - 1);
+  }
 
-  localStorage.setItem('collectedbooks', JSON.stringify(books));
-  bookTitle.value = '';
-  bookAuthor.value = '';
-  addBookitem(item, (books.length - 1));
-}
+  static delBook(bookItem, pos) {
+    const bookBlock = document.getElementById(pos);
+    books = books.filter((item) => item !== bookItem);
+    localStorage.setItem('books', JSON.stringify(books));
+    UpdateDisplay.listSection.removeChild(bookBlock);
+  }
 
-function updateUi() {
-  if (localStorage.getItem('collectedbooks')) {
-    books = JSON.parse(localStorage.getItem('collectedbooks'));
-    books.forEach((bookitem, i) => {
-      addBookitem(bookitem, i);
-    });
-  } else {
-    localStorage.setItem('collectedbooks', '');
-    books = [];
+  static updateUi() {
+    if (localStorage.getItem('books')) {
+      books = JSON.parse(localStorage.getItem('books'));
+      books.forEach((bookItem, pos) => {
+        UpdateDisplay.addBookItem(bookItem, pos);
+      });
+    } else {
+      localStorage.setItem('books', '');
+      books = [];
+    }
+  }
+
+  static addBookItem(bookItem, pos) {
+    const bookBlock = document.createElement('div');
+    bookBlock.classList.add('bookBlock');
+    bookBlock.id = pos;
+
+    const removeBtn = document.createElement('button');
+    removeBtn.classList.add('remove-btn');
+
+    bookBlock.innerHTML = `
+      <p class='book-title'>'${bookItem.author}'  by ${bookItem.title} </p>`;
+
+    removeBtn.innerText = 'Remove';
+
+    removeBtn.onclick = () => {
+      UpdateDisplay.delBook(bookItem, pos);
+    };
+
+    bookBlock.appendChild(removeBtn);
+    UpdateDisplay.listSection.appendChild(bookBlock);
   }
 }
 
-updateUi();
-
-theForm.addEventListener('submit', (e) => {
-  e.preventDefault();
-  addBooks({
-    title: bookTitle.value,
-    author: bookAuthor.value,
-  });
-});
+UpdateDisplay.updateUi();
+UpdateDisplay.formBtn.addEventListener('click', UpdateDisplay.addBooks);

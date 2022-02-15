@@ -6,6 +6,7 @@ This is a pair programming project that allows users to add and remove books fro
 Our goal here is to Build a book application with add and remove feature from scratch using JavaScripts. click [here] (https://abenezer-tilahun.github.io/Awesome-books/) to see deployed live version
 
 ![screenshot](images/Screenshoot.PNG)
+![screenshot](images/Screenshoot-1.PNG)
 
 
 ## Features implemented so far

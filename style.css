@@ -3,15 +3,93 @@ html {
 }
 
 body {
+  margin: 0;
+  padding: 0;
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
 }
 
-form {
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  justify-content: center;
+  align-items: center;
+}
+
+hr {
+  width: 10%;
+  text-align: center;
+  border-width: 1px;
+  background-color: #000;
+}
+
+.list-section {
+  width: 50%;
+  border: 3px solid #000;
+  padding-right: 20px;
+  margin-bottom: 25px;
+}
+
+.bookBlock {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 24px;
+  padding: 1px 10px;
+}
+
+.bookBlock:nth-child(odd) {
+  background-color: rgb(209, 208, 208);
+}
+
+form {
+  margin-top: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
 }
 
 form > * + * {
   margin-top: 20px;
+}
+
+.heading {
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+}
+
+input {
+  border: 3px solid black;
+  float: right;
+}
+
+button {
+  border: 3px solid black;
+  margin-bottom: 10px;
+  align-self: flex-end;
+  box-shadow: 2px 2px #000;
+  background-color: #fff;
+}
+
+.remove-btn {
+  height: 30px;
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 24px;
+  border: 2px solid black;
+  background-color: #fff;
+  align-self: center;
+  margin-top: 12px;
+  margin-left: auto;
+  margin-right: 18px;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  box-shadow: 3px 3px #000;
 }
