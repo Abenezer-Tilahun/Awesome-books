@@ -22,9 +22,12 @@ function addBookitem(bookitem, i) {
   removeBtn.classList.add('remove-btn');
   removeBtn.innerText = 'Remove';
 
+  const underLine = document.createElement('hr');
+
   bookBlock.innerHTML = `<p class="book-title">${bookitem.title}</p>
     <p class="book-Author">${bookitem.author}</p> `;
   bookBlock.appendChild(removeBtn);
+  bookBlock.appendChild(underLine);
   listSection.appendChild(bookBlock);
 
   removeBtn.onclick = () => {
