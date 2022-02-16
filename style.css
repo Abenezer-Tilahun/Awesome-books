@@ -8,10 +8,70 @@ body {
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
 }
 
+.nav-bar{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+  width: 90%;
+  border: 2px solid rgb(0, 0, 0);
+}
+.nav-item{
+  display: flex;
+  margin-left: auto;
+  margin-right: 30px;
+}
+.nav-item > ul {
+  display: flex;
+  margin-left: auto;
+}
+.nav-item > ul > li {
+  display: flex;
+  margin-right: 3px;
+  align-items: center;
+}
+.nav-bar a{
+  list-style-type: none;
+  text-decoration: none;
+}
+li > hr{
+  border: 1px solid #000;
+  align-items:center;
+  height: 20px;
+  margin-left: 5px;
+}
+li > a {
+  list-style-type: none;
+  text-decoration: none;
+  font-size: 15px;
+  font-weight:300;
+  line-height:10px;
+  padding-right: 5px;
+}
+.book-list{
+  display: none;
+}
+
+.add-books{
+  display: none;
+}
+.contact-info{
+  display: none;
+}
+.active{
+display: block;
+}
 header {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
+  width: 100%;
+  position: fixed;
+  top: 0;
 }
 
 .container {
@@ -19,6 +79,9 @@ header {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  width: 100%;
+  margin-top: 200px;
+  margin-bottom: 200px;
 }
 
 hr {
@@ -92,4 +155,13 @@ button {
   margin-right: 18px;
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   box-shadow: 3px 3px #000;
+}
+footer > p{
+  border: 2px solid black;
+  margin-top: 200px;
+  padding-left: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-left: 30px;
+  margin-right: 30px;
 }
