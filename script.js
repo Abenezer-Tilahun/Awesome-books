@@ -17,6 +17,10 @@ class UpdateDisplay {
 
   static bookAuthor = document.querySelector('#author');
 
+  static listBtn = document.querySelectorAll('.listBtn');
+
+  static addActive= document.querySelectorAll('.sec');
+
   // create new book
   static addBooks() {
     const bookItem = new UpdateDisplay(
@@ -72,5 +76,35 @@ class UpdateDisplay {
   }
 }
 
+UpdateDisplay.listBtn.forEach((btn, i) => {
+  btn.onclick = () => {
+    UpdateDisplay.addActive.forEach((sec, index) => {
+      if (i === index) {
+        sec.classList.add('active');
+      } else {
+        sec.classList.remove('active');
+      }
+    });
+  };
+});
+
+const timeBox = document.querySelector('.date_time');
+
+function time() {
+  const date = new Date();
+  const locale = navigator.language;
+  const options = {
+    month: 'long',
+    day: 'numeric',
+    year: 'numeric',
+    hour: 'numeric',
+    minute: 'numeric',
+    second: 'numeric',
+    hour12: 'false',
+  };
+  timeBox.textContent = `${date.toLocaleTimeString(locale, options)}`;
+}
+
+setInterval(time, 1000);
 UpdateDisplay.updateUi();
 UpdateDisplay.formBtn.addEventListener('click', UpdateDisplay.addBooks);
