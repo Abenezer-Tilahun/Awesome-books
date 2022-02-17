@@ -10,27 +10,27 @@
 <body>
     <header>
         <div class="nav-bar">
-        <a href="#">Awesome books</a>
+        <a>
+            <h2>Awesome books</h2></a>
         <div class="nav-item">
         <ul>
-        <li><a href="#book-list" >List</a> <hr/></li>
-        <li><a href="#add-books" >Addnew</a> <hr/></li>
-        <li><a href="#contact-info" >Contact</a></li>
+        <li><a class="listBtn" href="#book-list" >List</a> <hr/></li>
+        <li><a class="listBtn" href="#add-books" >Add New</a> <hr/></li>
+        <li><a class="listBtn" href="#contact" >Contact</a></li>
         </ul>
     </div>
     </div>
+    <div class="date_time"></div>
     </header>
    <div class="container">
-       <section class="book-list active" id="book-list">
-          <h2>All Awesome books</h2>
+       <section class="sec booklist active" id="book-list">
+          <h2 class="heading">All Awesome books</h2>
           <ul class="list-section">
         </ul>
        </section>
-      
-       <hr> 
-       <section class="add-books" id="add-books">
-        <span class="heading">Add a new book </span>
+       <section class="sec addbooks" id="add-books">
         <form>
+            <span class="heading">Add a new book </span>
             <label for="title">
                <input type="text" id="title" placeholder="Title" required>
             </label>
@@ -42,24 +42,22 @@
             <button type="submit"  class="btn-submit"> Add</button>
         </form>
        </section>
-      
-     
-     <section>
-        <div class="contact-info" id="contact-info">
-            <h1 class="contact-header">Contact information</h1>
-            <h2>Do you have any question or you just want to say "hello" ? You can reach out to us! </h2>
-            <ul>
+      <section class="sec contact" id="contact">
+            <h1 class="contact_header">Contact information</h1>
+            <p>Do you have any question or you just want to say "hello" ? You can reach out to us! </p>
+            <ul class="contact_info">
                 <li><p> our email : Abenezerandfaith@gmail.com</p></li>
                 <li><p>Our phone number : 002346788 </p></li>
                 <li><p>Our address : sanfrascisco,USA </p></li>
             </ul>
-        </div>
-
-     </section>
+       </section>
     </div>
-   
-    <footer>
-        <p> Copyright</p>
+   <footer>
+       <div class="nav-bar">
+           <a>
+        <h2> Copyright- Abenezer & Faith, 2022</h2>
+    </a>
+    </div>
     </footer>
     <script src="./script.js"></script>
 </body>
